@@ -20,7 +20,7 @@ def call_ensembl(id:str) -> Dict:
 
 @workflow
 def wf_ensembl(id: str="ENSG00000157764") -> Dict:
-       """
+    """
     Calling ensembl API
 
     This workflow takes an ensembl id and calls the API to return 
@@ -37,5 +37,5 @@ def wf_ensembl(id: str="ENSG00000157764") -> Dict:
         return dictionary output
     """
     
-   return call_ensembl(id)
+    return call_ensembl(id)
   
