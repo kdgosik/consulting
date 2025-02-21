@@ -1,0 +1,172 @@
+import os
+
+# Constants
+AA_THREE_TO_ONE_DICT = {
+    'Ala':'A', 
+    'Arg':'R',
+    'Asn':'N',
+    'Asp':'D',
+    'Cys':'C',
+    'Glu':'E',
+    'Gln':'Q',
+    'Gly':'G',
+    'His':'H',
+    'Ile':'I',
+    'Leu':'L',
+    'Lys':'K',
+    'Met':'M',
+    'Phe':'F',
+    'Pro':'P',
+    'Ser':'S',
+    'Thr':'T',
+    'Trp':'W',
+    'Tyr':'Y',
+    'Val':'V',
+    'Ter':'*'
+}
+
+
+SIMPLE_AA_CLINICAL_SIGNIFICANCE = {
+    'uncertain': 'Uncertain significance',
+    'pathogenic': 'Pathogenic',
+    'benign': 'Benign',
+    'benign, uncertain': 'Benign',
+    'pathogenic, uncertain': 'Pathogenic',
+    'benign, pathogenic': 'Uncertain significance',
+    'benign, pathogenic, uncertain': 'Uncertain significance',
+}
+
+
+SIMPLE_CLINICAL_SIGNIFICANCE_DICT = {
+    'Pathogenic': 'pathogenic', 
+    'Likely pathogenic': 'pathogenic', 
+    'Benign': 'benign',
+    'Uncertain significance': 'uncertain', 
+    'Pathogenic/Likely pathogenic': 'pathogenic',
+    'Conflicting interpretations of pathogenicity': 'uncertain', 
+    'Likely benign': 'benign',
+    'Benign/Likely benign': 'benign', 
+    'not provided': 'uncertain',
+}
+
+
+RENAME_COLUMNS_DICT = {
+    'genesymbol': 'gene', 
+    'aa_variant': 'aa_variant', 
+    'simple_aa_clinical_significance': 'clinical_annotation',
+}
+
+# List of predictors to evaluate
+PREDICTORS_TO_EVALUATE = [
+    'varity', 
+    'revel', 
+    'cpt', 
+    'alphamissense'
+]
+
+
+GENE_LIST = [
+    'ACTA2',
+    'ACTC1',
+    'ACVRL1',
+    'APC',
+    'APOB',
+    'ATP7B',
+    'BAG3',
+    'BMPR1A',
+    'BRCA1',
+    'BRCA2',
+    'BTD',
+    'CACNA1S',
+    'CALM1',
+    'CALM2',
+    'CALM3',
+    'CASQ2',
+    'COL3A1',
+    'DES',
+    'DSC2',
+    'DSG2',
+    'DSP',
+    'ENG',
+    'FBN1',
+    'FLNC',
+    'GAA',
+    'GLA',
+    'HFE',
+    'HNF1A',
+    'KCNH2',
+    'KCNQ1',
+    'LDLR',
+    'LMNA',
+    'MAX',
+    'MEN1',
+    'MLH1',
+    'MSH2',
+    'MSH6',
+    'MUTYH',
+    'MYBPC3',
+    'MYH11',
+    'MYH7',
+    'MYL2',
+    'MYL3',
+    'NF2',
+    'OTC',
+    'PALB2',
+    'PCSK9',
+    'PKP2',
+    'PMS2',
+    'PRKAG2',
+    'PTEN',
+    'RB1',
+    'RBM20',
+    'RET',
+    'RPE65',
+    'RYR1',
+    'RYR2',
+    'SCN5A',
+    'SDHAF2',
+    'SDHB',
+    'SDHC',
+    'SDHD',
+    'SMAD3',
+    'SMAD4',
+    'STK11',
+    'TGFBR1',
+    'TGFBR2',
+    'TMEM127',
+    'TMEM43',
+    'TNNC1',
+    'TNNI3',
+    'TNNT2',
+    'TP53',
+    'TPM1',
+    'TRDN',
+    'TSC1',
+    'TSC2',
+    'TTN',
+    'TTR',
+    'VHL',
+    'WT1',
+]
+
+
+# gene: [disease, full_icd10, truncated_icd10]
+RARE_DISEASES = {
+    'MTHFR':['Hyperhomocysteinaemia', 'E72.11', 'E72.1'],
+    'NPC1':['Niemann-Pick Disease Type C', 'E75.242', 'E75.2'],
+    'CBS':['Homocystinuria','E72.11', 'E72.1'],
+    'HMBS':['Disorders of porphyrin and bilirubin metabolism','E80','E80'],
+    'TPK1':['Thiamine deficiency', 'E51','E51'],
+    'TPK1':['Niacin deficiency, also known as pellagra', 'E52','E52'],
+    'ASPA':['Canavan disease','E75.28','E75.2'],
+    'CALM1':['Long QT syndrome','I45.81','I45.8'],
+    'FKRP':['Limb girdle muscular dystrophy','G71.033','G71.0'],
+    'LARGE1':['spinal muscular atrophies','G12.8','G12.8'],
+    'PRKN':['Parkinson','G20','G20'],
+    'RHO':['Autosomal dominant retinitis pigmentosa','H35.52','H35.5'],
+    'SCN5A':['Brugada syndrome','I49.8','I49.8'],
+    'SGCB':['Limb girdle muscular dystrophy','G71.033','G71.0'],
+    'GLA':['Fabry Disease','E75.21','E75.2'],
+    'GBA1':['Gaucher Disease','E75.22','E75.2'],
+    'GAA':['Pompe Disease','E74.02','E74.0']
+}
