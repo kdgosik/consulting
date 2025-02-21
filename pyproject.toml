@@ -1,0 +1,24 @@
+[project.optional-dependencies]
+tests = [
+  "pytest",
+  "pytest-cov"
+]
+lint = [
+  "black",
+  "flake8"
+]
+docs = [
+    "sphinx",
+    "pydata-sphinx-theme"
+]
+
+[tool.ruff]
+select = [
+    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+    "F", # pyflakes. "E" + "W" + "F" + "C90" (mccabe complexity) is equivalent to flake8
+    "I", # isort
+]
+
+[tool.ruff.isort]
+known-first-party = ["examplePy"]
