@@ -29,6 +29,25 @@ def calculate_egfr(scr, sex, age):
     
     return egfr
 
+def extract_protein_change(text):
+    """Extracts the protein change from a text string
+
+    Parameters
+    ----------
+    text - str - text string to extract protein change from
+
+    Returns
+    -------
+    match.group() - str - protein change
+    """
+
+    match = re.search(r'p\.[A-Za-z]+[0-9]+[A-Za-z]+', text)
+
+    if match:
+        return match.group()
+    else:
+        return None
+        
 
 def create_ids(genomic_coordinates=None, chrom=None, pos=None, ref=None, alt=None):
     """
