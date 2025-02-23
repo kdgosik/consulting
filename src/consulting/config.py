@@ -1,4 +1,4 @@
-import numpy as np 
+import numpy as np
 
 
 AA_THREE_TO_ONE_DICT = {

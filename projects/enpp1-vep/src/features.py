@@ -2,7 +2,7 @@ import data
 
 
 
-def read_clinvar():
+def extract_features_clinvar():
     """
     Reads in the clinvar data and processes it to be used in the variant effect map
 
@@ -42,3 +42,26 @@ def read_clinvar():
     )
 
     return df
+
+
+def add_vep_scores(vep):
+    """_summary_
+
+    Parameters
+    ----------
+    vep (_type_): _description_
+    
+    Returns
+    -------
+    _type_: _description_
+    """
+    
+    clinvar_df = extract_features_clinvar()
+    
+    ## TODO: open-cravat functions
+    # reformat clinvar data for open-cravat
+    # run open-cravat for desired vep scores
+    # extract vep scores from open-cravat output
+    # add vep scores to clinvar_df
+    
+    return clinvar_df
