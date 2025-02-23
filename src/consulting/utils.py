@@ -13,9 +13,38 @@ import seaborn as sns
 import plotly
 
 
+def execute_command(command):
+    """_summary_
+
+    Parameters
+    ----------
+    command str: bash command to execute
+
+    Returns
+    -------
+    _type_: _description_
+    
+    Example
+    -------
+    url = "https://www.example.com/file.txt"
+    output_path = "downloaded_file.txt"
+    
+    command = f"wget {url} -O {output_path}"
+    output, error = execute_command(command)
+    """
+    
+    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output, error = process.communicate()
+    return output.decode(), error.decode()
+
 
 def rounddown(x, sig):
     return np.floor(x / sig) * sig
+
+
+def extract_number(s):
+    match = re.search(r'[-+]?\d*\.?\d+', str(s))  # Finds integer or decimal numbers
+    return int(match.group()) if match else np.nan  # Convert to float or return NaN
 
 
 def calculate_egfr(scr, sex, age):

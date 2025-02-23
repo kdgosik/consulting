@@ -1,5 +1,8 @@
 .ipynb_checkpoints/
 .DS_Store
+.RData
+.Rhistory
 data/
 bin/
 __pycache__
+
