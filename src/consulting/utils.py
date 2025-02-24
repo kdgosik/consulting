@@ -352,6 +352,24 @@ def install_annotator(annotator):
     print(res.stdout)
 
 
+def run_annotator(data, annotator, build = 'hg38'):
+    """Runs the open-cravat annotator on the input data
+    
+    Parameters
+    ----------
+    data - str: input data file
+    annotator - str: annotator to run
+    
+    Returns
+    -------
+    output - subprocess.run: output of the command
+    """
+    
+    command = f"oc run {data} -l {build} -a clinvar {annotator} -t text excel"
+    output, error = execute_command(command)
+    
+    pd.read_excel(f"{data}.xlsx", sheet_name=1, header=1)
+    return output
 
 
 ## seqkit commands and stesp

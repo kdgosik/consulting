@@ -58,6 +58,8 @@ def add_vep_scores(vep):
     
     clinvar_df = extract_features_clinvar()
     
+    process_clinvar_for_oc(clinvar_df)
+    
     ## TODO: open-cravat functions
     # reformat clinvar data for open-cravat
     # run open-cravat for desired vep scores

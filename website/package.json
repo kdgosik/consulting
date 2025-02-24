@@ -15,11 +15,15 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@datalayer/jupyter-react": "^0.19.3",
     "@docusaurus/core": "3.7.0",
     "@docusaurus/preset-classic": "3.7.0",
+    "@jupyterlite/kernel": "^0.5.1",
+    "@jupyterlite/pyodide-kernel": "^0.5.2",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
+    "raw-loader": "^4.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

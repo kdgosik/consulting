@@ -63,7 +63,7 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
+  // Removed webpack configuration as 'configure' is not a known property
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',

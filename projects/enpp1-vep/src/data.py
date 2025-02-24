@@ -1,6 +1,5 @@
 import os
 import sys
-import wget
 import re
 
 import numpy as np
@@ -9,7 +8,6 @@ import pandas as pd
 sys.path.append('../../../src')
 from consulting.config import *
 from consulting.utils import *
-
 
 
 def download_clinvar():
@@ -58,6 +56,31 @@ def read_clinvar(test_set=False):
 
     return df
 
+
+def process_clinvar_for_oc(clinvar_df, gene):
+    """
+    Processes the clinvar data to be used in the variant effect map
+    
+    Parameters
+    ----------
+    clinvar_df - pd.DataFrame - clinvar data    
+    gene - str - gene to filter the data on
+    
+    Returns
+    -------
+    clinvar_df - pd.DataFrame - processed clinvar data
+    """
+    
+    clinvar_df = (
+        clinvar_df
+        .query('GeneSymbol == @gene')
+        .query('Type == "single nucleotide variant"')
+        .assign(strand = "+")
+        .filter(['Chromosome', 'PositionVCF','strand', 'ReferenceAlleleVCF', 'AlternateAlleleVCF'])
+    )
+    
+    clinvar_df.to_csv('../data/processed/clinvar_oc.tsv', sep='\t', index=False, header=False)
+    
 
 
 

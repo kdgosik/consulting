@@ -35,6 +35,15 @@ def plot_functional_code_countplot(score_df):
 
 def plot_functional_code_kde(score_df, vep, save_fig=False):
     """_summary_
+    
+    Parameters
+    ----------
+    score_df pd.DataFrame: _description_
+    vep str: _description_
+    save_fig bool: _description_ 
+    
+    Returns
+    -------
     """
     
     gene = score_df['gene'].unique()[0]
