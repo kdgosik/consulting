@@ -57,33 +57,6 @@ def read_clinvar(test_set=False):
     return df
 
 
-def process_clinvar_for_oc(clinvar_df, gene):
-    """
-    Processes the clinvar data to be used in the variant effect map
-    
-    Parameters
-    ----------
-    clinvar_df - pd.DataFrame - clinvar data    
-    gene - str - gene to filter the data on
-    
-    Returns
-    -------
-    clinvar_df - pd.DataFrame - processed clinvar data
-    """
-    
-    clinvar_df = (
-        clinvar_df
-        .query('GeneSymbol == @gene')
-        .query('Type == "single nucleotide variant"')
-        .assign(strand = "+")
-        .filter(['Chromosome', 'PositionVCF','strand', 'ReferenceAlleleVCF', 'AlternateAlleleVCF'])
-    )
-    
-    clinvar_df.to_csv('../data/processed/clinvar_oc.tsv', sep='\t', index=False, header=False)
-    
-
-
-
 def download_findlay_brac1():
     """
     Downloads the Findlay BRCA1 data from the Journal website
@@ -133,6 +106,12 @@ def read_findlay_brca1():
         })
 
     # Convert to two-class system
-    brca1_df['class'] = brca1_df['class'].replace(['FUNC', 'INT'], 'FUNC/INT')
+    brca1_df['class2'] = brca1_df['class'].replace(['FUNC', 'INT'], 'FUNC/INT')
+    brca1_df['clinvar_category'] = brca1_df['clinvar_simple'].map(ANNOTATION_MAP)
     
     return brca1_df
+
+
+if __main__ == '__main__':
+    clinvar_df = read_clinvar()
+    findlay_brca1_df = read_findlay_brca1()

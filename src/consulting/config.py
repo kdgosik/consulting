@@ -1,7 +1,7 @@
 import numpy as np
 
 
-AA_THREE_TO_ONE_DICT = {
+AA_THREE_TO_ONE_MAP = {
     'Ala':'A', 'Arg':'R', 'Asn':'N', 'Asp':'D', 'Cys':'C',
     'Glu':'E', 'Gln':'Q', 'Gly':'G', 'His':'H', 'Ile':'I',
     'Leu':'L', 'Lys':'K', 'Met':'M', 'Phe':'F', 'Pro':'P',
@@ -15,6 +15,7 @@ ANNOTATION_MAP = {
     'Likely benign':'B/LB',
     'Benign/Likely benign': 'B/LB',
     'Uncertain significance':'VUS',
+    'absent':'VUS',
     'Conflicting interpretations of pathogenicity':'VUS',
     'Pathogenic':'P/LP',
     'Likely pathogenic':'P/LP',

@@ -3,7 +3,6 @@ import sys
 import subprocess
 import yaml
 import re
-import wget
 
 import numpy as np
 import pandas as pd
@@ -11,6 +10,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly
+
+from consulting.config import *
 
 
 def execute_command(command):
@@ -35,6 +36,7 @@ def execute_command(command):
     
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     output, error = process.communicate()
+    
     return output.decode(), error.decode()
 
 
@@ -58,6 +60,7 @@ def calculate_egfr(scr, sex, age):
     
     return egfr
 
+
 def extract_protein_change(text):
     """Extracts the protein change from a text string
 
@@ -77,6 +80,37 @@ def extract_protein_change(text):
     else:
         return None
         
+
+def shorten_protein_change(text):
+    """Shortens the protein change from a text string
+
+    Parameters
+    ----------
+    text - str - text string to extract protein change from
+
+    Returns
+    -------
+    match.group() - str - protein change
+    """
+
+    if text is not str:
+        text = str(text)
+
+    match = re.search(r'p\.(?P<aaref>[A-Za-z]+)(?P<pos>[0-9]+)(?P<aaalt>[A-Za-z]+)', text)
+
+    if match:
+        aaref = match.group('aaref')
+        aaalt = match.group('aaalt')
+        pos = match.group('pos')
+        
+        aaref_one = ''.join([AA_THREE_TO_ONE_MAP[aa] for aa in re.findall(r'[A-Z][a-z]{2}', aaref)])
+        aaalt_one = ''.join([AA_THREE_TO_ONE_MAP[aa] for aa in re.findall(r'[A-Z][a-z]{2}', aaalt)])
+        
+        return f'p.{aaref_one}{pos}{aaalt_one}'
+    else:
+        return None
+
+
 
 def create_ids(genomic_coordinates=None, chrom=None, pos=None, ref=None, alt=None):
     """
