@@ -81,6 +81,7 @@ def download_findlay_brac1():
 def read_findlay_brca1():
     """
     Reads in the Findlay BRCA1 data and processes it to be used in the variant effect map
+    https://github.com/ArcInstitute/evo2/blob/main/notebooks/brca1/brca1_zero_shot_vep.ipynb
     """
     
     brca1_df = pd.read_excel(
