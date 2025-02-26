@@ -1,3 +1,13 @@
+[project]
+name = "consulting"
+version = "0.1"
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = []
+authors = [
+  { name = "Kirk Gosik", email = "kdgosik@gmail.com" },
+]
 [project.optional-dependencies]
 tests = [
   "pytest",

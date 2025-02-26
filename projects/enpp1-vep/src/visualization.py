@@ -63,4 +63,3 @@ if __main__ == '__main__':
     score_df = models.load_score_data()
     plot_functional_code_countplot(score_df)
     plot_functional_code_kde(score_df, 'vep', save_fig=True)
-    plot_functional_code_kde(score_df, 'sift', save_fig=True)

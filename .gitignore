@@ -4,5 +4,12 @@
 .Rhistory
 data/
 bin/
+build/
 __pycache__
-
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+*.pyw
+*.egg-info
+*.egg

@@ -11,4 +11,6 @@
 [article link](https://pmc.ncbi.nlm.nih.gov/articles/PMC7359949)
 
   - CTS-13-727-s002.docx: Table 1: Protein abuduance scores of CYP2C9 variants from ExAC browser and Mayo Right 10K study
+    - https://pmc.ncbi.nlm.nih.gov/articles/instance/7359949/bin/CTS-13-727-s002.docx
   - CTS-13-727-s003.docs: Table 2: Protein abuduance scores of CYP2C19 variants from ExAC browser and Mayo Right 10K study
+    - https://pmc.ncbi.nlm.nih.gov/articles/instance/7359949/bin/CTS-13-727-s003.docx

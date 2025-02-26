@@ -11,7 +11,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly
 
-from consulting.config import *
+from config import *
+
+def get_project_root() -> str:
+    """Returns project root folder.
+    """
+    return os.path.dirname(os.path.dirname(__file__))  # src
 
 
 def execute_command(command):
