@@ -24,7 +24,7 @@ def download_clinvar():
     Returns
     -------
     """
-    root_dir = get_project_root().replace('/src', '')
+    root_dir = get_root()
 
     print('Downloading clinvar data...')
     url = 'ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz'
@@ -47,7 +47,7 @@ def read_clinvar(test_set=False):
     df - pd.DataFrame - clinvar data
     """
     
-    root_dir = get_project_root().replace('/src', '')
+    root_dir = get_root()
     file_path = f"{root_dir}/data/external/variant_summary.txt.gz"
     
     if not os.path.exists(file_path):

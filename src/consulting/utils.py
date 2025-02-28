@@ -13,10 +13,10 @@ import plotly
 
 from config import *
 
-def get_project_root() -> str:
+def get_root() -> str:
     """Returns project root folder.
     """
-    return os.path.dirname(os.path.dirname(__file__))  # src
+    return os.path.abspath(__file__).replace('/src/consulting/utils.py', '')
 
 
 def execute_command(command):

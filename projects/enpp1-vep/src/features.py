@@ -86,7 +86,7 @@ def add_vep_scores(df, vep, gene):
     return clinvar_df
     
 
-if __main__ == '__main__':
+if __name__ == '__main__':
     gene = 'BRCA1'
     vep = 'alphamissense'
     
