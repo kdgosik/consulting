@@ -1,0 +1,37 @@
+name: "Kirk Gosik"
+email: "kirk@example.com"
+phone: "+1-234-567-8901"
+linkedin: "https://linkedin.com/in/kirkgosik"
+github: "https://github.com/kirkgosik"
+
+summary: |
+  Experienced software engineer with expertise in backend development, cloud infrastructure, and data engineering.
+
+education:
+  - degree: "M.Sc. Computer Science"
+    school: "University of Example"
+    year: "2020"
+  - degree: "B.Sc. Computer Engineering"
+    school: "Example College"
+    year: "2018"
+
+experience:
+  - title: "Senior Software Engineer"
+    company: "TechCorp"
+    years: "2021 -- Present"
+    details:
+      - "Led redesign of microservices architecture."
+      - "Mentored junior team members and interns."
+  - title: "Software Engineer"
+    company: "WebStart"
+    years: "2018 -- 2021"
+    details:
+      - "Developed APIs in Python and Go."
+      - "Optimized SQL queries for performance."
+
+skills:
+  - "Python"
+  - "Go"
+  - "Docker"
+  - "Kubernetes"
+  - "SQL"

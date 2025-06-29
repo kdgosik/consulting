@@ -1,0 +1,46 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\titleformat{\section}{\large\bfseries}{}{0em}{}
+
+\begin{document}
+
+\begin{center}
+    {\Huge \textbf{{{name}}}}\\
+    \vspace{4pt}
+    \href{mailto:{{{email}}}}{{{email}}} \quad | \quad {{{phone}}} \\
+    \href{{{linkedin}}}{LinkedIn} \quad | \quad \href{{{github}}}{GitHub}
+\end{center}
+
+\vspace{0.5cm}
+
+\section*{Summary}
+{{{summary}}}
+
+\section*{Education}
+{{#education}}
+\textbf{{{degree}}}, {{{school}}} \hfill {{{year}}} \\
+{{/education}}
+
+\section*{Experience}
+{{#experience}}
+\textbf{{{title}}}, {{{company}}} \hfill {{{years}}} \\
+\begin{itemize}
+{{#details}}
+  \item {{{.}}}
+{{/details}}
+\end{itemize}
+{{/experience}}
+
+\section*{Skills}
+\begin{itemize}[label={--}]
+{{#skills}}
+  \item {{{.}}}
+{{/skills}}
+\end{itemize}
+
+\end{document}
