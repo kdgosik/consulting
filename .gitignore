@@ -2,6 +2,8 @@
 .DS_Store
 .RData
 .Rhistory
+.venv/
+.env
 data/
 bin/
 build/
