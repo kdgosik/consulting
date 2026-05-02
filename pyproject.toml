@@ -32,3 +32,8 @@ select = [
 
 [tool.ruff.isort]
 known-first-party = ["examplePy"]
+
+[tool.uv.workspace]
+members = [
+    "projects/mcp-explore/hello",
+]
